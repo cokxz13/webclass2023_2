@@ -1,0 +1,34 @@
+ /*CSS 코드 */
+ @font-face {
+    font-family: 'iceSotong-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/iceSotong-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'iceSotong-Rg';
+    background-image: url('./bg.jpg');
+    background-size: cover;
+}
+
+#name-modal{
+    width: 400px; /*너비*/
+    height: 200px; /*높이*/
+    background-color: #FFCC70;
+    border-radius: 30px; /*모서리를 둥글게*/
+
+    /*모달 안에 있는 내용들을 중앙정렬*/
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; /*수직 정렬*/
+    align-items: center; /*수평 정렬*/
+
+    /*모달 창을 중앙에 위치*/
+    position: absolute;
+    top: 50%; /*위에서 절반*/
+    left: 50%;
+    transform: translate(-50%, -50%); /*위치를 옮겨줌*/
+
+
+}
