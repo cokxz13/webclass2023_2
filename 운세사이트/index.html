@@ -14,19 +14,57 @@
         <div id="name-modal">
             <h3>이름을 입력해주세요</h3>
             <input type="text" name="" id="username">
-            <input type="button" value="확인">
+            <input type="button" value="확인" onclick="getUsername()">
         </div>
 
         <!--세부 컨텐츠(인사말, 포춘 쿠키 이미지, 운세 결과)-->
-        <div id="contents">
+        <div id="contents" class="hide">
             <!--인사말 만들기-->
             <div class="greeting">
                 <h2><span id="name"></span>님 환영합니다.</h2>
                 <h2>오늘의 운세를 확인하기 위해 포춘쿠키를 선택해주세요.</h2>
             </div>
             <!--포춘쿠키 이미지 넣기-->
+            <div id="box-container">
+                <div class="box">
+                    <img src="./fortune-cookie-before.png" alt="포춘쿠키">
+                </div>
+                <div class="box">
+                    <img src="./fortune-cookie-before.png" alt="포춘쿠키">
+                </div>
+                <div class="box">
+                    <img src="./fortune-cookie-before.png" alt="포춘쿠키">
+                </div>
+            </div>
             <!--포춘쿠키 운세 결과 보여주기-->
+            <div id="result-message">운세 결과 메시지 창입니다.</div>
         </div>
     </div>
+    <!--자바스크립트 코드-->
+    <script>
+        function getUsername() {
+            const input = document.getElementById('username')
+            console.log(input.value) //input text 요소에 작성한 이름가져오기
+            const username = input.value
+            if(username.length == 0) {
+                //만약에 사용자가 이름을 입력하지 않았다면
+                //경고창 띄우기
+                window.alert('이름을 입력해주세요!')
+            } else {
+                const span = document.getElementById("name")
+                span.innerText = username //span 태그 안에 사용자 이름 넣기
+               
+                const modal = document.getElementById("name-modal")
+                const contents = document.getElementById("contents")
+                //modal에 hide 클래스 속성 넣기
+                modal.classList.add('hide')
+                //contents에 hide 클래스 속성 삭제하기
+                contents.classList.remove('hide')
+
+            }
+        }
+
+       
+    </script>
 </body>
 </html>
