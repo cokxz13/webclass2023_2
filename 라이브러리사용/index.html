@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing 효과 만들기</title>
+</head>
+<body>
+
+    <div id="container">
+        <div id="contents">
+            <span>나는</span>
+            <span id="element"></span>
+        </div>
+    </div>  
+
+  <!-- Load library from the CDN -->
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+  <!-- Setup and start animation! -->
+  <script>
+    var typed = new Typed('#element', {
+      strings: ['새로운것을 도전하길 좋아합니다', '개발자이자 선생님이다','학생들에게 열정과 자신감을 불어넣습니다'],
+      typeSpeed: 50, //타이핑 속도
+      loop: true, //무한반복
+    });
+  </script>
+</body>
+</body>
+</html>
