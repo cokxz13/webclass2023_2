@@ -108,6 +108,116 @@
             box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
         }
 
+        /*플레이어 아이콘*/
+        section .my-slick .inner .txt {
+            text-align: center; /*글자를 가운데정렬*/
+            display: flex; /* 수직, 수평 정렬을 쉽게 할 수 있도록 도와줌*/
+            width: 100%;
+            flex-direction: column; /*수직방향으로 셋팅*/
+            justify-content: space-evenly; /*수직 간격을 동일하게*/
+        }
+        /* 아티스트 이름 */
+        section .my-slick .inner .txt p {
+            font-size: 20px;
+        }
+
+        section .my-slick .inner .txt ul {
+            display: flex;
+            justify-content: space-evenly; /*수평 간격을 동일하게*/ 
+            margin-top: 20px;
+        }
+
+        section .my-slick .inner .txt ul li {
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0.6; /*투명도*/
+            transition: 0.3s; 
+
+        }
+
+        section .my-slick .inner .txt ul li.play {
+            transform: scale(1.2);
+        }
+
+        section .my-slick .inner .txt ul li:hover {
+            opacity: 1.0;
+            transform: scale(1.2);
+        }
+
+        section .my-slick .inner .txt ul li.play:hover {
+            opacity: 1.0;
+            transform: scale(1.5);
+        }
+
+        /* 앨범이 돌아가는 애니메이션*/
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        section .my-slick .inner.on .pic {
+            /*rotate 라는 애니메이션을 4초동안 일정한 속도로 무한히 실행해라*/
+            animation: rotate 10s linear infinite;
+        }
+
+        /*화살표 스타일링*/
+        section .my-slick .slick-arrow {
+            font-size: 32px;
+            opacity: 0.6;
+            z-index: 3;
+            padding: 5px 8px;
+        }
+
+        section .my-slick .slick-prev {
+            /*(relative가 있는)부모를 기준으로 위치를 잡음*/
+            position: absolute; 
+            top: 50%;
+        }
+
+        section .my-slick .slick-next {
+            position: absolute;
+            right: 0%; /*가장 오른쪽으로 이동*/
+            top: 50%;
+        }
+
+        /*화살표 애니메이션 */
+
+        @keyframes move-left {
+            0% {
+                left: -10px;
+                color: yellow;
+            }
+            100% {
+                left: 0px;
+                color: black;
+            }
+        }
+
+        @keyframes move-right {
+            0% {
+                right: -10px;
+                color: yellow;
+            }
+            100% {
+                right: 0px;
+                color: black;
+            }
+        }
+
+        section .my-slick .slick-prev:hover {
+            cursor: pointer;
+            animation: move-left 1s ease-out infinite;
+        }
+
+        section .my-slick .slick-next:hover {
+            cursor: pointer;
+            animation: move-right 1s ease-out infinite;
+        }
+
         
 
 
@@ -124,7 +234,7 @@
         <section>
             <div class="my-slick">
                 <!-- track 1-->
-                <div class="inner">
+                <div class="inner on">
                     <!-- 앨범 이미지 -->
                     <div class="pic">
                         <div class="dot"></div>
@@ -285,8 +395,27 @@
                 slidesToShow: 3,
                 dots: true,
                 centerMode: true,
+                prevArrow: '<i class="fas fa-solid fa-angle-left slick-prev"></i>',
+                nextArrow: '<i class="fas fa-solid fa-angle-right slick-next"></i>'
             });
         });
+
+        const TITLES = ["Hype Boy", "Super Shy", "Better Things", "이브 프시케 그리고 푸른수염의 아내", "Baddie", "Nonstop"]
+        const ARTISTS = ["NewJeans", "NewJeans", "Aespa", "르세라핌", "아이브", "오마이걸"]
+       
+        //h2 태그를 모두 찾아주세요
+        const titles = document.getElementsByTagName('h2')
+        const artist = document.getElementsByTagName('p')
+        const images = document.getElementsByClassName('pic')
+        //for(시작값; 반복되는 조건; 증감)
+        // for i in range(len(TITLES))
+        console.log(titles)
+        for(let i = 0; i<TITLES.length; i++){
+            titles[i].innerText = TITLES[i] 
+            artist[i].innerText = ARTISTS[i]
+            images[i].style.backgroundImage = `url(./img/img${i+1}.jpg)`
+
+        }
     </script>
 </body>
 </html>
