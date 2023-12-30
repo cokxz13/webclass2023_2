@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'NPSfontBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body{
+    font-family: 'NPSfontBold';
+    background-color: #E5E1DA;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*padding 값에 영향받지 x*/
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    /*중앙정렬*/
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.btn {
+    font-family: 'NPSfontBold';
+    width: 20vw;
+    height: 8vh;
+    font-size: 1.8rem; /* 1rem = 16px */
+    border-radius: 5px;
+    border-color: #92C7CF;
+    background-color: #92C7CF;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 6px -6px teal;
+}
+
+.hide {
+    display: none; 
+}
+
+.show {
+    display: block;
+}
